@@ -1,0 +1,11 @@
+{
+  "n_bins": 3200,
+  "patch_size": 16,
+  "embed_dim": 256,
+  "num_heads": 8,
+  "num_layers": 4,
+  "ff_dim": 512,
+  "latent_dim": 256,
+  "cond_dim": 8,
+  "dropout": 0.1
+}
