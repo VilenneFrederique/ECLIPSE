@@ -36,24 +36,13 @@ REGISTRY: dict[str, dict] = {
     # Slim, recommended for embedding/clustering: encoder weights only (~half size).
     "encoder-weights": {
         "filename": "specclust_encoder.weights.h5",
-        "url": "REPLACE_ME",  # e.g. https://github.com/<you>/specclust/releases/download/v0.1.0/specclust_encoder.weights.h5
-        "sha256": None,
+        "url": "https://github.com/VilenneFrederique/specclust/releases/download/v0.1.0/specclust_encoder.weights.h5",  
+        "sha256": "3c90bb9bb5c9960251f9b2165dd61be89f5ed78be6b3d21f5d28a0bd49877a6e",
     },
     "encoder-config": {
         "filename": "encoder_config.json",
-        "url": "REPLACE_ME",
-        "sha256": None,
-    },
-    # Full autoencoder (encoder + decoder), for reconstruction/visualisation.
-    "ae-weights": {
-        "filename": "best_conditional_ae.weights.h5",
-        "url": "REPLACE_ME",
-        "sha256": None,
-    },
-    "ae-config": {
-        "filename": "ae_config.json",
-        "url": "REPLACE_ME",
-        "sha256": None,
+        "url": "https://github.com/VilenneFrederique/specclust/releases/download/v0.1.0/encoder_config.json",
+        "sha256": "89e53685f735458973c358746fb5444148cc6813725d93d7a45fcfd9974c0a00",
     },
 }
 

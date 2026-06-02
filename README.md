@@ -26,23 +26,19 @@ model.
 
 ## Getting the weights
 
-The package looks for model files in this order:
+`load_encoder()` resolves the model files in this order:
 
 1. `SPECCLUST_MODEL_DIR` — set this to a folder holding the weights (handy on
    an HPC node where you already have them):
-   ```bash
+```bash
    export SPECCLUST_MODEL_DIR=/path/to/weights
-   ```
+```
 2. the local cache (downloaded once, then reused);
-3. download from the URLs in `specclust.modelhub.REGISTRY`.
+3. download from the GitHub release (the URLs are configured in
+   `specclust.modelhub.REGISTRY`).
 
-To enable automatic download, host the weights and fill in the `url` (and,
-recommended, `sha256`) fields of `REGISTRY`. Good hosting options: a **GitHub
-Release** asset (simple, up to 2 GB/file), the **Hugging Face Hub**
-(purpose-built for model weights), or **Zenodo** (gives a citable DOI for the
-paper). Any direct-download URL works.
-
-You can always bypass the registry with explicit local paths:
+With no setup, option 3 runs automatically on first use. You can also bypass
+the registry with explicit local paths:
 
 ```python
 from specclust import load_encoder
@@ -74,24 +70,6 @@ Command line:
 ```bash
 specclust embed   -i parquet_dir/ -o latents.npy
 specclust cluster -i latents.npy  -o clusters/ --method hdbscan
-```
-
-## Publishing the model (one-time)
-
-Run the export step to produce the slim encoder assets from a trained
-autoencoder, then upload them to your release/Hub:
-
-```bash
-python training/export_encoder.py --ae-dir AE_DIR --out release_assets/
-# -> release_assets/specclust_encoder.weights.h5
-#    release_assets/encoder_config.json
-```
-
-Compute SHA-256 for the registry:
-
-```bash
-python -c "import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" \
-  release_assets/specclust_encoder.weights.h5
 ```
 
 ## Repository layout
