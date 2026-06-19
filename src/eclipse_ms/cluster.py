@@ -38,7 +38,7 @@ def cluster_latents(
         try:
             import hdbscan
         except ImportError:
-            print("hdbscan not installed (`pip install specclust[hdbscan]`); using KMeans.")
+            print("hdbscan not installed (`pip install eclipse-ms[hdbscan]`); using KMeans.")
             method = "kmeans"
 
     if method == "hdbscan":

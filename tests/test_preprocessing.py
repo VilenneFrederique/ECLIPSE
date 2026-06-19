@@ -1,6 +1,6 @@
 import numpy as np
 
-from specclust import (
+from eclipse_ms import (
     COND_DIM,
     Config,
     bin_spectrum_numpy,

@@ -22,7 +22,7 @@ def embed_spectra(
     """Encode pre-binned spectra to latent vectors in batches.
 
     Args:
-        encoder: a loaded encoder (see :func:`specclust.modelhub.load_encoder`)
+        encoder: a loaded encoder (see :func:`eclipse_ms.modelhub.load_encoder`)
             or a full autoencoder exposing ``.encode``.
         spectra: array ``[n, N_BINS]`` of binned spectra (float32).
         conditioning: array ``[n, cond_dim]`` of conditioning vectors.

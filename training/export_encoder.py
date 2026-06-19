@@ -22,8 +22,8 @@ import os
 
 import tensorflow as tf
 
-from specclust.config import COND_DIM
-from specclust.models import ConditionalSpectrumAutoencoder
+from eclipse_ms.config import COND_DIM
+from eclipse_ms.models import ConditionalSpectrumAutoencoder
 
 
 def main():
@@ -73,7 +73,7 @@ def main():
 
     # ---- SANITY CHECK (uncomment): encoder latents must match the AE ----
     # import numpy as np
-    # from specclust.modelhub import load_encoder
+    # from eclipse_ms.modelhub import load_encoder
     # enc = load_encoder(weights=enc_weights,
     #                    config=os.path.join(args.out, "encoder_config.json"))
     # x = tf.random.uniform((4, n_bins)); c = tf.random.uniform((4, cond_dim))

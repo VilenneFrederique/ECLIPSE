@@ -1,4 +1,4 @@
-"""Keras layer building blocks for the SpecClust autoencoder.
+"""Keras layer building blocks for the ECLIPSE autoencoder.
 
 Ported verbatim from the training code so the registered serialisable layers
 reconstruct with exactly the same weight structure when loading published

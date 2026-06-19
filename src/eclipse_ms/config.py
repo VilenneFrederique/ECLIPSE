@@ -1,4 +1,4 @@
-"""Centralised configuration for SpecClust.
+"""Centralised configuration for ECLIPSE.
 
 These values define the spectrum binning and the autoencoder architecture. They
 MUST match the configuration used to train the published weights; the binning

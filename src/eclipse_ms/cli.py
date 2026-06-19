@@ -1,4 +1,4 @@
-"""SpecClust command-line interface.
+"""ECLIPSE command-line interface.
 
 Subcommands:
   embed      Bin + encode spectra from parquet to a latents .npy
@@ -71,13 +71,13 @@ def _cmd_cluster(args):
 def _cmd_consensus(args):
     print(
         "Consensus generation needs spectra grouped by cluster. See "
-        "specclust.consensus.generate_consensus_spectrum and the example in "
+        "eclipse_ms.consensus.generate_consensus_spectrum and the example in "
         "training/consensus_reference.py for the full pipeline."
     )
 
 
 def main(argv=None):
-    p = argparse.ArgumentParser(prog="specclust", description="SpecClust")
+    p = argparse.ArgumentParser(prog="eclipse", description="ECLIPSE")
     sub = p.add_subparsers(dest="command", required=True)
 
     pe = sub.add_parser("embed", help="Encode spectra to latents")

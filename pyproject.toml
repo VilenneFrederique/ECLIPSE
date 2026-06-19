@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "specclust"
+name = "eclipse-ms"
 version = "0.1.1"
 description = "Conditional spectrum autoencoder and clustering for MS/MS dark-proteome discovery"
 readme = "README.md"
@@ -40,15 +40,15 @@ train = ["pyteomics>=4.6", "regex>=2023.0", "joblib>=1.2", "tqdm>=4.64"]
 dev = ["pytest>=7.0", "ruff>=0.1", "build>=1.0"]
 
 [project.urls]
-Homepage = "https://github.com/VilenneFrederique/specclust"
-Repository = "https://github.com/VilenneFrederique/specclust"
-Issues = "https://github.com/VilenneFrederique/specclust/issues"
+Homepage = "https://github.com/VilenneFrederique/ECLIPSE"
+Repository = "https://github.com/VilenneFrederique/ECLIPSE"
+Issues = "https://github.com/VilenneFrederique/ECLIPSE/issues"
 
 [project.scripts]
-specclust = "specclust.cli:main"
+eclipse = "eclipse_ms.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/specclust"]
+packages = ["src/eclipse_ms"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

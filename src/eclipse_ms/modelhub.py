@@ -6,7 +6,7 @@ Zenodo record) and are downloaded on first use and cached locally, with a
 SHA-256 integrity check.
 
 Resolution order for any model file:
-  1. ``SPECCLUST_MODEL_DIR`` env var, if set and the file exists there;
+  1. ``ECLIPSE_MODEL_DIR`` env var, if set and the file exists there;
   2. the local cache (``platformdirs`` user cache dir);
   3. download from the registry URL into the cache.
 
@@ -36,12 +36,12 @@ REGISTRY: dict[str, dict] = {
     # Slim, recommended for embedding/clustering: encoder weights only (~half size).
     "encoder-weights": {
         "filename": "specclust_encoder.weights.h5",
-        "url": "https://github.com/VilenneFrederique/specclust/releases/download/v0.1.0/specclust_encoder.weights.h5",  
+        "url": "https://github.com/VilenneFrederique/ECLIPSE/releases/download/v0.1.0/specclust_encoder.weights.h5",
         "sha256": "3c90bb9bb5c9960251f9b2165dd61be89f5ed78be6b3d21f5d28a0bd49877a6e",
     },
     "encoder-config": {
         "filename": "encoder_config.json",
-        "url": "https://github.com/VilenneFrederique/specclust/releases/download/v0.1.0/encoder_config.json",
+        "url": "https://github.com/VilenneFrederique/ECLIPSE/releases/download/v0.1.0/encoder_config.json",
         "sha256": "89e53685f735458973c358746fb5444148cc6813725d93d7a45fcfd9974c0a00",
     },
 }
@@ -49,7 +49,7 @@ REGISTRY: dict[str, dict] = {
 
 def cache_dir() -> Path:
     """Directory where downloaded weights are cached."""
-    d = Path(user_cache_dir("specclust"))
+    d = Path(user_cache_dir("eclipse-ms"))
     d.mkdir(parents=True, exist_ok=True)
     return d
 
@@ -66,7 +66,7 @@ def _download(url: str, dest: Path) -> None:
     if url in (None, "", "REPLACE_ME"):
         raise RuntimeError(
             f"No download URL configured for {dest.name}. Either set the URL in "
-            f"specclust.modelhub.REGISTRY, set the SPECCLUST_MODEL_DIR environment "
+            f"eclipse_ms.modelhub.REGISTRY, set the ECLIPSE_MODEL_DIR environment "
             f"variable to a folder containing the file, or pass an explicit path."
         )
     tmp = dest.with_suffix(dest.suffix + ".part")
@@ -94,7 +94,7 @@ def get_model_file(key: str) -> Path:
     entry = REGISTRY[key]
     filename = entry["filename"]
 
-    env_dir = os.environ.get("SPECCLUST_MODEL_DIR")
+    env_dir = os.environ.get("ECLIPSE_MODEL_DIR")
     if env_dir:
         candidate = Path(env_dir) / filename
         if candidate.exists():

@@ -4,8 +4,8 @@ import pytest
 # Skip the whole module if TensorFlow is not installed.
 tf = pytest.importorskip("tensorflow")
 
-from specclust.config import COND_DIM, Config  # noqa: E402
-from specclust.models import (  # noqa: E402
+from eclipse_ms.config import COND_DIM, Config  # noqa: E402
+from eclipse_ms.models import (  # noqa: E402
     ConditionalSpectrumAutoencoder,
     ConditionalSpectrumEncoder,
 )
@@ -34,7 +34,7 @@ def test_autoencoder_roundtrip_shapes():
 
 
 def test_embed_spectra_runs():
-    from specclust.embed import embed_spectra
+    from eclipse_ms.embed import embed_spectra
 
     enc = ConditionalSpectrumEncoder(
         n_bins=Config.N_BINS, latent_dim=Config.LATENT_DIM, cond_dim=COND_DIM

@@ -108,7 +108,7 @@ def write_mzml(consensus_spectra: List[Dict], output_path: str) -> None:
     lines = [
         '<?xml version="1.0" encoding="utf-8"?>',
         '<mzML xmlns="http://psi.hupo.org/ms/mzml" version="1.1.0">',
-        "  <run id=\"specclust_consensus\" "
+        "  <run id=\"eclipse_consensus\" "
         f'startTimeStamp="{datetime.now(timezone.utc).isoformat()}">',
         f'    <spectrumList count="{len(consensus_spectra)}">',
     ]
