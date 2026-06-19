@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "eclipse-ms"
-version = "0.1.1"
+version = "0.1.2"
 description = "Conditional spectrum autoencoder and clustering for MS/MS dark-proteome discovery"
 readme = "README.md"
 requires-python = ">=3.10"
